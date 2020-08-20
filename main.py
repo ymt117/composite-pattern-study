@@ -10,12 +10,17 @@ def main():
     user_B.get_name()
     user_B.get_id()
 
-    group_X = Group(user_A, "SUNSHINE")
-    group_X.get_name()
-    group_X.get_members()
+    class_A = Group(user_A, "class A")
+    class_A.get_name()
+    class_A.get_members()
+    
+    class_A.add(user_B)
+    class_A.get_name()
+    class_A.get_members()
 
-    group_X.add(user_B)
-    group_X.get_members()
+    school = Group(class_A, "SUNSHINE School")
+    school.get_name()
+    school.get_members()
 
 if __name__ == "__main__":
     main()
