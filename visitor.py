@@ -1,4 +1,5 @@
 from abc import ABCMeta, abstractclassmethod
+import json
 
 class Visitor(metaclass=ABCMeta):
     @abstractclassmethod
@@ -14,9 +15,12 @@ class PrintVisitor(Visitor):
         print('visit user id: {}'.format(user.id))
 
     def visit_group(self, group):
-        print('visit group name: {}'.format(group.name))
+        print('"', end='')
+        print(group.name, end='')
+        print('": ', end='')
+
         print('[')
         for i in range(len(group.members)):
             print('\t', end='')
-            print(vars(group.members[i]))
+            print(json.dumps(vars(group.members[i])))
         print(']')
