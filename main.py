@@ -1,15 +1,24 @@
 from user import User
+from user_factory import UserFactory
 from group import Group
 from visitor import PrintVisitor
 
 def main():
 
-    user_A = User("Takeshi", 1)
-    user_B = User("Yuki", 2)
+    user_factory = UserFactory.get_instance()
+
+    user_A = user_factory.get("Takeshi", 1)
+    user_B = user_factory.get("Yuki", 2)
     user_A.get_name()
     user_A.get_id()
     user_B.get_name()
     user_B.get_id()
+
+    # Flyweightパターンを実装したので、
+    # 同じインスタンスidが出力される
+    user_X = user_factory.get("Takeshi", 1)
+    print(id(user_A))
+    print(id(user_X))
 
     class_A = Group(user_A, "class A")
     class_A.get_name()
