@@ -1,5 +1,6 @@
 from user import User
 from group import Group
+from visitor import PrintVisitor
 
 def main():
 
@@ -21,6 +22,8 @@ def main():
     school = Group(class_A, "SUNSHINE School")
     school.get_name()
     school.get_members()
+
+    user_A.accept(PrintVisitor())
 
 if __name__ == "__main__":
     main()

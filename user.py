@@ -1,4 +1,5 @@
 from entity import Entity
+from visitor import Visitor
 
 class User(Entity):
     def __init__(self, name, id):
@@ -10,3 +11,6 @@ class User(Entity):
 
     def get_id(self):
         print(self.id)
+
+    def accept(self, visitor):
+        visitor.visit(self)
