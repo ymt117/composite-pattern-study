@@ -13,4 +13,4 @@ class User(Entity):
         print(self.id)
 
     def accept(self, visitor):
-        visitor.visit(self)
+        visitor.visit_user(self)

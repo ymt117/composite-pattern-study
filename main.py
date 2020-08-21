@@ -24,6 +24,7 @@ def main():
     school.get_members()
 
     user_A.accept(PrintVisitor())
+    class_A.accept(PrintVisitor())
 
 if __name__ == "__main__":
     main()
